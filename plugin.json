@@ -1,0 +1,16 @@
+{
+	"info":{
+		"name":"cws_plugin" ,
+		"description":"cws format",
+		"author":"David",
+		"email":"",
+		"type":"outputSlicer" ,
+		"winExecPath":"cws_plugin.exe" ,
+		"macExecPath":"cws_plugin_Mac",
+		"linuxExecPath":"cws_plugin_Linux",
+		"inputSuffix":"zip_raw_png_32b" ,
+		"outputSuffix":"cws",
+		"detail":"This plugin is used to export Wanhao-cws,version:V1.1",
+		"requireVersion":"V1.4.1"
+	}
+}
