@@ -1,8 +1,9 @@
-// cws_plugin.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
+// cws_plugin.cpp : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£
 //
 
-
+#if defined(_WIN32) || defined(WIN32)
 #include "stdafx.h"
+#endif
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -49,7 +50,7 @@ std::vector<std::string> split(const char *s, const char *delim)
 }
 
 void write_1_gcode(char *fileName,map<string, string> &valueMap) {
-	ofstream ofile;               //¶¨ÒåÊä³öÎÄ¼þ
+	ofstream ofile;               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 	int layerNum = static_cast<int>(strtol(valueMap.at("totalLayer").c_str(), NULL, 0));
 	int bottomLayerNum = static_cast<int>(strtol(valueMap.at("bottomLayCount").c_str(), NULL, 0));
 	int normalExposureTime = static_cast<float>(strtof(valueMap.at("normalExposureTime").c_str(), NULL))*1000;
@@ -61,7 +62,7 @@ void write_1_gcode(char *fileName,map<string, string> &valueMap) {
 	float widthX = static_cast<float>(strtof(valueMap.at("machineX").c_str(), NULL));
 	float widthY = static_cast<float>(strtof(valueMap.at("machineY").c_str(), NULL));
 	float layerHeight = static_cast<float>(strtof(valueMap.at("layerHeight").c_str(), NULL));
-	ofile.open(fileName);     //×÷ÎªÊä³öÎÄ¼þ´ò¿ª
+	ofile.open(fileName);     //ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 	ofile << ";(****Build and Slicing Parameters****)" << endl;
 	ofile << ";(Pix per mm X = " << resolutionX/widthX << " px/mm)" << endl;
 	ofile << ";(Pix per mm Y = " << resolutionY/widthY << " px/mm)" << endl;
@@ -131,8 +132,8 @@ void write_1_gcode(char *fileName,map<string, string> &valueMap) {
 }
 
 void writeManifest_xml(char *dirPath,char *fileName,map<string, string> &valueMap) {
-	ofstream ofile;               //¶¨ÒåÊä³öÎÄ¼þ
-	ofile.open(fileName);     //×÷ÎªÊä³öÎÄ¼þ´ò¿ª
+	ofstream ofile;               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+	ofile.open(fileName);     //ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 	
 	int layerNum = static_cast<int>(strtol(valueMap.at("totalLayer").c_str(), NULL, 0));
 	ofile << "<?xml version = \"1.0\" encoding = \"utf-8\"?>" << endl;
@@ -203,8 +204,8 @@ void writeManifest_xml(char *dirPath,char *fileName,map<string, string> &valueMa
 }
 
 void writeDefault_slicing(char *fileName,map<string, string> &valueMap ) {
-	ofstream ofile;               //¶¨ÒåÊä³öÎÄ¼þ
-	ofile.open(fileName);     //×÷ÎªÊä³öÎÄ¼þ´ò¿ª
+	ofstream ofile;               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+	ofile.open(fileName);     //ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 	int resolutionX = static_cast<int>(strtol(valueMap.at("resolutionX").c_str(), NULL, 0));
 	int resolutionY = static_cast<int>(strtol(valueMap.at("resolutionY").c_str(), NULL, 0));
 	float widthX = static_cast<float>(strtof(valueMap.at("machineX").c_str(), NULL));
@@ -304,8 +305,8 @@ void writeDefault_slicing(char *fileName,map<string, string> &valueMap ) {
 void readGcode(char *fileName, map<string, string> &valueMap)
 {
 	ifstream infile;
-	infile.open(fileName);   //½«ÎÄ¼þÁ÷¶ÔÏóÓëÎÄ¼þÁ¬½ÓÆðÀ´ 
-	assert(infile.is_open());   //ÈôÊ§°Ü,ÔòÊä³ö´íÎóÏûÏ¢,²¢ÖÕÖ¹³ÌÐòÔËÐÐ 
+	infile.open(fileName);   //ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	assert(infile.is_open());   //ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢,ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	
 	string s;
 	std::vector<std::string> ss;
@@ -325,7 +326,7 @@ void readGcode(char *fileName, map<string, string> &valueMap)
 			}
 		}
 	}
-	infile.close();             //¹Ø±ÕÎÄ¼þÊäÈëÁ÷ 
+	infile.close();             //ï¿½Ø±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 }
 
 int main(int argc, char **argv) {
