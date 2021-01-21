@@ -3,7 +3,7 @@ This project is completely based on [NJ3D/CWS-plugin-32bit](https://github.com/J
 
 ## Requirements
 
-To build this project you will need a C++ compiler and the zip utility.
+To build this project you will need a C++ compiler (Xcode w/Command Line Tools on MacOS) and the zip utility.
 
 ## Building
 
@@ -17,4 +17,4 @@ After building you will have a .CHplugin file.
 From CHITUBOX go to **|||->Help->Plugins->Import Plugin** and add the .CHplugin file. After you Slice, you will have the option to export to the CWS format.
 
 ## Errata
-This has only been tested on MacOS 10.15 and CHITUBOX V1.6.3.
+This has only been tested on MacOS 10.15/CHITUBOX V1.6.3 and V1.8.0 Beta.
