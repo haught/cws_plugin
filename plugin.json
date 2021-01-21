@@ -1,7 +1,7 @@
 {
 	"info":{
 		"name":"cws_plugin" ,
-		"description":"cws format",
+		"description":"CWS",
 		"author":"David",
 		"email":"",
 		"type":"outputSlicer" ,
