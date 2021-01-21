@@ -5,6 +5,10 @@
 #include "stdafx.h"
 #endif
 
+#if defined(__linux__)
+#include <cstring>
+#endif
+
 #include<stdio.h>
 #include<stdlib.h>
 #include <map>
