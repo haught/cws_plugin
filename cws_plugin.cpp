@@ -153,28 +153,28 @@ void writeManifest_xml(char *dirPath,char *fileName,map<string, string> &valueMa
 	char *format, *fileFormat;
 	int totalLayer = layerNum;
 	if (totalLayer < 10000) {
-		format = "%s/1%04d.png";
-		fileFormat = "1%04d.png";
+		format = (char*)"%s/1%04d.png";
+		fileFormat = (char*)"1%04d.png";
 	}
 	else if (totalLayer >= 10000 && totalLayer < 100000) {
-		format = "%s/1%05d.png";
-		fileFormat = "1%05d.png";
+		format = (char*)"%s/1%05d.png";
+		fileFormat = (char*)"1%05d.png";
 	}
 	else if (totalLayer >= 100000 && totalLayer < 1000000) {
-		format = "%s/1%06d.png";
-		fileFormat = "1%06d.png";
+		format = (char*)"%s/1%06d.png";
+		fileFormat = (char*)"1%06d.png";
 	}
 	else if (totalLayer >= 1000000 && totalLayer < 10000000) {
-		format = "%s/1%07d.png";
-		fileFormat = "1%07d.png";
+		format = (char*)"%s/1%07d.png";
+		fileFormat = (char*)"1%07d.png";
 	}
 	else if (totalLayer >= 10000000 && totalLayer < 100000000) {			//impossible
-		format = "%s/1%08d.png";
-		fileFormat = "1%08d.png";
+		format = (char*)"%s/1%08d.png";
+		fileFormat = (char*)"1%08d.png";
 	}
 	else {
-		format = "%s/1%020d.png";
-		fileFormat = "1%020d.png";
+		format = (char*)"%s/1%020d.png";
+		fileFormat = (char*)"1%020d.png";
 	}
 	char oldName[4096], newName[4096];
 	for (int i = 0; i < totalLayer; i++) {
